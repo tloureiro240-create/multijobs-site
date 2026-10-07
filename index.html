@@ -1,190 +1,130 @@
 <!doctype html>
-<html lang="fr">
+<html lang="pt">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#111418">
-  <meta name="description" content="Multijobs — eletricidade, iluminação LED, renovação, instalações técnicas, manutenção e trabalhos diversos.">
-  <title>Multijobs | Plusieurs services. Uma única equipa.</title>
-  <link rel="icon" href="assets/favicon.png">
-  <link rel="icon" href="assets/favicon.png">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Multijobs",
-    "email":"multijobs@sapo.pt",
-    "telephone":["+352691930443","+352621573750"]
-  }
-  </script>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#6f8f72">
+  <meta name="description" content="Receitas da Casa — pesquisa receitas online e guarda as receitas da família.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>Receitas da Casa</title>
 </head>
 <body>
-<header class="topbar">
-  <a href="#inicio" class="brand"><img src="assets/logo-multijobs.jpg" alt="Multijobs"></a>
-<nav id="nav">
-    <a href="#inicio">Accueil</a>
-    <a href="#servicos">Services</a>
-    <a href="#projetos">Projets</a>
-    <a href="#contactos">Contacts</a>
+  <header class="topbar">
+    <a class="brand" href="#inicio">
+      <img src="assets/icon.svg" alt="" width="42" height="42">
+      <span><strong>Receitas da Casa</strong><small>O vosso livro de receitas</small></span>
+    </a>
+    <div class="top-actions">
+      <button id="installBtn" class="btn ghost hidden" type="button">Instalar app</button>
+      <button id="themeBtn" class="icon-btn" type="button" aria-label="Mudar tema">☾</button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section id="view-inicio" class="view active">
+      <div class="hero">
+        <div>
+          <span class="eyebrow">COZINHAR, GUARDAR, PARTILHAR</span>
+          <h1>Todas as vossas receitas num só lugar.</h1>
+          <p>Procura receitas na internet, guarda as favoritas e cria as receitas que fazem em casa com ingredientes, quantidades e passos.</p>
+          <div class="hero-actions">
+            <button class="btn primary" data-go="pesquisar">Pesquisar receitas</button>
+            <button class="btn secondary" data-action="new-recipe">+ Nova receita</button>
+          </div>
+        </div>
+        <div class="hero-card"><div class="hero-emoji">🍲</div><strong>Hoje cozinhas o quê?</strong><span>Experimenta procurar por massa, frango, peixe, bolo…</span></div>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat"><span>Minhas receitas</span><strong id="statRecipes">0</strong></article>
+        <article class="stat"><span>Favoritas</span><strong id="statFavorites">0</strong></article>
+        <article class="stat"><span>Lista de compras</span><strong id="statShopping">0</strong></article>
+      </div>
+
+      <section class="section-block">
+        <div class="section-head"><div><span class="eyebrow">RÁPIDO</span><h2>Categorias</h2></div></div>
+        <div class="category-grid">
+          <button data-category="Chicken">🍗<span>Frango</span></button>
+          <button data-category="Beef">🥩<span>Carne</span></button>
+          <button data-category="Seafood">🐟<span>Peixe</span></button>
+          <button data-category="Pasta">🍝<span>Massas</span></button>
+          <button data-category="Vegetarian">🥦<span>Vegetarianas</span></button>
+          <button data-category="Dessert">🍰<span>Sobremesas</span></button>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head"><div><span class="eyebrow">RECENTES</span><h2>Últimas receitas guardadas</h2></div><button class="text-btn" data-go="minhas">Ver todas</button></div>
+        <div id="recentRecipes" class="cards-grid"></div>
+      </section>
+    </section>
+
+    <section id="view-pesquisar" class="view">
+      <div class="page-head"><div><span class="eyebrow">DESCOBRIR</span><h1>Pesquisar receitas</h1><p>Pesquisa receitas online através da base pública TheMealDB.</p></div></div>
+      <form id="searchForm" class="search-box">
+        <input id="searchInput" type="search" placeholder="Ex.: carbonara, chicken, cake..." autocomplete="off">
+        <button class="btn primary" type="submit">Pesquisar</button>
+      </form>
+      <div class="filter-row">
+        <button class="chip" data-search="chicken">Frango</button><button class="chip" data-search="pasta">Massas</button><button class="chip" data-search="salmon">Salmão</button><button class="chip" data-search="rice">Arroz</button><button class="chip" data-search="cake">Bolos</button>
+      </div>
+      <div id="searchStatus" class="status-note">Escreve o nome de uma receita para começar.</div>
+      <div id="searchResults" class="cards-grid"></div>
+    </section>
+
+    <section id="view-minhas" class="view">
+      <div class="page-head inline"><div><span class="eyebrow">LIVRO DA CASA</span><h1>Minhas Receitas</h1><p>Receitas criadas por vocês e receitas guardadas da internet.</p></div><button class="btn primary" data-action="new-recipe">+ Nova receita</button></div>
+      <div class="toolbar">
+        <input id="mySearch" type="search" placeholder="Pesquisar nas minhas receitas…">
+        <select id="myCategory"><option value="">Todas as categorias</option><option>Pequeno-almoço</option><option>Entradas</option><option>Sopas</option><option>Massas</option><option>Arroz</option><option>Carne</option><option>Frango</option><option>Peixe</option><option>Vegetariano</option><option>Sobremesas</option><option>Bolos</option><option>Snacks</option><option>Molhos</option><option>Outras</option></select>
+      </div>
+      <div id="myRecipes" class="cards-grid"></div>
+      <div id="myEmpty" class="empty hidden"><div>📖</div><h3>Ainda não tens receitas guardadas</h3><p>Cria a primeira receita ou guarda uma receita encontrada na pesquisa.</p><button class="btn primary" data-action="new-recipe">Criar receita</button></div>
+    </section>
+
+    <section id="view-favoritos" class="view">
+      <div class="page-head"><div><span class="eyebrow">AS MELHORES</span><h1>Favoritos</h1><p>As receitas que vocês querem encontrar rapidamente.</p></div></div>
+      <div id="favoriteRecipes" class="cards-grid"></div>
+      <div id="favEmpty" class="empty hidden"><div>♡</div><h3>Sem favoritos por enquanto</h3><p>Carrega no coração de uma receita para a guardar aqui.</p></div>
+    </section>
+
+    <section id="view-compras" class="view">
+      <div class="page-head inline"><div><span class="eyebrow">ORGANIZAÇÃO</span><h1>Lista de Compras</h1><p>Adiciona ingredientes diretamente das receitas ou manualmente.</p></div><button id="clearBoughtBtn" class="btn secondary">Limpar comprados</button></div>
+      <form id="shoppingForm" class="shopping-add"><input id="shopName" placeholder="Produto (ex.: leite)" required><input id="shopQty" placeholder="Quantidade (ex.: 1 L)"><button class="btn primary" type="submit">Adicionar</button></form>
+      <div id="shoppingList" class="shopping-list"></div>
+      <div id="shopEmpty" class="empty hidden"><div>🛒</div><h3>A lista está vazia</h3><p>Adiciona ingredientes de uma receita ou escreve um produto acima.</p></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Navegação principal">
+    <button class="nav-item active" data-go="inicio"><span>⌂</span><small>Início</small></button>
+    <button class="nav-item" data-go="pesquisar"><span>⌕</span><small>Pesquisar</small></button>
+    <button class="nav-item" data-go="minhas"><span>▣</span><small>Receitas</small></button>
+    <button class="nav-item" data-go="favoritos"><span>♡</span><small>Favoritos</small></button>
+    <button class="nav-item" data-go="compras"><span>🛒</span><small>Compras</small></button>
   </nav>
-</header>
 
-<main>
-<section id="inicio" class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-inner">
-    <span class="kicker">MULTIJOBS</span>
-    <h1>Plusieurs services.<br>Une seule équipe.</h1>
-    <p>Électricité, éclairage LED, rénovation, installations et entretien pour votre maison ou votre projet.</p>
-    <div class="actions">
-      <a class="btn red" href="#contactos">Demander un devis</a>
-      <a class="btn outline" href="#projetos">Voir nos réalisations</a>
-    </div>
-    <div class="hero-pills">
-      <span>Électricité</span>
-      <span>LED</span>
-      <span>Renovação</span>
-      <span>Entretien</span>
-    </div>
-  </div>
-</section>
+  <dialog id="recipeDialog" class="dialog"><button class="dialog-close" data-close-dialog>×</button><div id="recipeDetail"></div></dialog>
 
-<section class="section intro">
-  <div>
-    <span class="kicker blue">UNE ÉQUIPE, PLUSIEURS SOLUTIONS</span>
-    <h2>Du travail technique à la finition</h2>
-  </div>
-  <p>Multijobs réunit plusieurs compétences pour rendre chaque intervention plus simple, organisée et soignée.</p>
-</section>
+  <dialog id="editorDialog" class="dialog">
+    <button class="dialog-close" data-close-dialog>×</button>
+    <form id="recipeForm">
+      <div class="form-head"><span class="eyebrow">RECEITA DA CASA</span><h2 id="editorTitle">Nova receita</h2></div>
+      <input id="recipeId" type="hidden">
+      <div class="form-grid two"><label>Nome da receita<input id="rName" required placeholder="Ex.: Lasanha da Ana"></label><label>Categoria<select id="rCategory"><option>Outras</option><option>Pequeno-almoço</option><option>Entradas</option><option>Sopas</option><option>Massas</option><option>Arroz</option><option>Carne</option><option>Frango</option><option>Peixe</option><option>Vegetariano</option><option>Sobremesas</option><option>Bolos</option><option>Snacks</option><option>Molhos</option></select></label></div>
+      <label>Descrição<textarea id="rDescription" rows="2" placeholder="Uma pequena descrição…"></textarea></label>
+      <div class="form-grid three"><label>Tempo total<input id="rTime" placeholder="Ex.: 45 min"></label><label>Porções<input id="rServings" type="number" min="1" value="4"></label><label>Dificuldade<select id="rDifficulty"><option>Fácil</option><option>Médio</option><option>Difícil</option></select></label></div>
+      <label>Foto (URL)<input id="rImage" type="url" placeholder="https://…"></label>
+      <div class="dynamic-section"><div class="subhead"><h3>Ingredientes</h3><button type="button" class="btn tiny secondary" id="addIngredientBtn">+ Ingrediente</button></div><div id="ingredientsEditor"></div></div>
+      <div class="dynamic-section"><div class="subhead"><h3>Preparação</h3><button type="button" class="btn tiny secondary" id="addStepBtn">+ Passo</button></div><div id="stepsEditor"></div></div>
+      <label>Notas / dicas<textarea id="rNotes" rows="3" placeholder="Ex.: usar menos açúcar da próxima vez…"></textarea></label>
+      <div class="dialog-actions"><button type="button" class="btn secondary" data-close-dialog>Cancelar</button><button class="btn primary" type="submit">Guardar receita</button></div>
+    </form>
+  </dialog>
 
-<section class="section" id="servicos">
-  <div class="heading">
-    <span class="kicker blue">SERVICES</span>
-    <h2>Ce que nous faisons</h2>
-  </div>
-  <div class="services">
-    <article><b>01</b><h3>Électricité</h3><p>Installations, modifications, réparations et entretien électrique.</p></article>
-    <article><b>02</b><h3>Éclairage LED</h3><p>Lignes LED, éclairage indirect, murs, plafonds et escaliers.</p></article>
-    <article><b>03</b><h3>Éclairage extérieur</h3><p>Solutions pour façades, accès, jardins et espaces extérieurs.</p></article>
-    <article><b>04</b><h3>Rénovation et finitions</h3><p>Améliorations intérieures et travaux de finition.</p></article>
-    <article><b>05</b><h3>Installations techniques</h3><p>Montage et intégration de solutions techniques.</p></article>
-    <article><b>06</b><h3>Entretien</h3><p>Petites interventions, réparations et travaux divers.</p></article>
-  </div>
-</section>
-
-
-<section class="section why" id="porque">
-  <div class="heading">
-    <span class="kicker blue">POURQUOI MULTIJOBS</span>
-    <h2>Plusieurs services, un contact simple</h2>
-  </div>
-  <div class="why-grid">
-    <article>
-      <span>01</span>
-      <h3>Plusieurs services</h3>
-      <p>Une équipe pour différents types de travaux, sans complications inutiles.</p>
-    </article>
-    <article>
-      <span>02</span>
-      <h3>Contact direct</h3>
-      <p>Vous échangez directement avec l’équipe pour expliquer votre besoin et organiser l’intervention.</p>
-    </article>
-    <article>
-      <span>03</span>
-      <h3>Travail soigné</h3>
-      <p>Attention aux détails, organisation et finitions adaptées à chaque projet.</p>
-    </article>
-  </div>
-</section>
-
-<section class="projects section" id="projetos">
-  <div class="heading split">
-    <div>
-      <span class="kicker blue">PROJETS</span>
-      <h2>Quelques-unes de nos réalisations</h2>
-    </div>
-    <div class="filters">
-      <button class="filter active" data-filter="all">Tous</button>
-      <button class="filter" data-filter="interior">Intérieur</button>
-      <button class="filter" data-filter="stairs">Escaliers</button>
-      <button class="filter" data-filter="exterior">Extérieur</button>
-    </div>
-  </div>
-
-  <div class="gallery">
-    <figure data-cat="interior"><img loading="lazy" src="assets/corredor-led.jpg" alt="Corredor com iluminação LED"><figcaption>Lignes LED intégrées</figcaption></figure>
-    <figure data-cat="interior"><img loading="lazy" src="assets/linhas-led.jpg" alt="Parede com linhas LED"><figcaption>Éclairage décoratif</figcaption></figure>
-    <figure data-cat="stairs"><img loading="lazy" src="assets/escada-led.jpg" alt="Escada com LED"><figcaption>Escalier avec LED continue</figcaption></figure>
-    <figure data-cat="stairs"><img loading="lazy" src="assets/escada-focos.jpg" alt="Escada com focos"><figcaption>Spots encastrés</figcaption></figure>
-    <figure data-cat="interior"><img loading="lazy" src="assets/teto-led.jpg" alt="Teto falso com LED"><figcaption>Plafond avec éclairage indirect</figcaption></figure>
-    <figure data-cat="exterior"><img loading="lazy" src="assets/exterior-noite.jpg" alt="Éclairage extérieur"><figcaption>Éclairage extérieur</figcaption></figure>
-    <figure data-cat="exterior"><img loading="lazy" src="assets/fachada.jpg" alt="Travail technique em fachada"><figcaption>Travail technique</figcaption></figure>
-    <figure data-cat="interior"><img loading="lazy" src="assets/coluna-led.jpg" alt="Coluna com LED"><figcaption>Détail LED</figcaption></figure>
-    <figure data-cat="stairs"><img loading="lazy" src="assets/escada-topo.jpg" alt="Escada iluminada"><figcaption>Éclairage d’escalier</figcaption></figure>
-  </div>
-</section>
-
-<section class="section faq">
-  <div class="heading">
-    <span class="kicker blue">FAQ</span>
-    <h2>Perguntas frequentes</h2>
-  </div>
-  <div class="faq-list">
-    <details><summary>Posso enviar fotografias do trabalho?</summary><p>Sim. As fotografias ajudam a perceber melhor o tipo de intervenção necessária.</p></details>
-    <details><summary>Fazem trabalhos pequenos?</summary><p>Sim. Podes contactar a Multijobs para explicar o trabalho e confirmar a disponibilidade.</p></details>
-    <details><summary>Como peço um orçamento?</summary><p>Podes usar o formulário acima, ligar ou enviar uma mensagem por WhatsApp.</p></details>
-  </div>
-</section>
-
-<section class="contact" id="contactos">
-  <div class="contact-inner">
-    <span class="kicker">CONTACTS</span>
-    <h2>Contactez-nous directement</h2>
-    <div class="contact-grid contact-grid-4">
-      <a href="tel:+352691930443"><small>Tiago</small><strong>691 930 443</strong><span>Appeler →</span></a>
-      <a href="tel:+352621573750"><small>Luis</small><strong>621 573 750</strong><span>Appeler →</span></a>
-      <a href="mailto:multijobs@sapo.pt"><small>E-mail</small><strong>multijobs@sapo.pt</strong><span>Envoyer un e-mail →</span></a>
-      <a href="https://www.google.com/maps/search/?api=1&query=1A%20Route%20de%20Luxembourg%2C%205551%20Remich" target="_blank" rel="noopener"><small>Adresse</small><strong>1A Route de Luxembourg<br>5551 Remich</strong><span>Ouvrir sur la carte →</span></a>
-    </div>
-  </div>
-    <div class="contact-actions">
-      <a class="btn red" href="https://wa.me/352691930443" target="_blank" rel="noopener">WhatsApp Tiago</a>
-      <a class="btn bluebtn" href="https://wa.me/352621573750" target="_blank" rel="noopener">WhatsApp Luis</a>
-    </div>
-  </div>
-</section>
-</main>
-
-<a class="floating-wa" target="_blank" rel="noopener" href="https://wa.me/352691930443" aria-label="WhatsApp">WA</a>
-
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <button id="lightboxClose" aria-label="Fechar">×</button>
-  <img id="lightboxImg" alt="">
-</div>
-
-
-<a class="floating-wa" href="https://wa.me/352691930443" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">WA</a>
-
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <button id="lightboxClose" aria-label="Fechar">×</button>
-  <img id="lightboxImg" alt="Projeto Multijobs ampliado">
-</div>
-
-<footer>
-  <div class="footer-brand">
-    <img src="assets/logo-multijobs.jpg" alt="Multijobs">
-    <span>Plusieurs services. Uma única equipa.</span>
-  </div>
-  <div class="footer-links">
-    <a href="tel:+352691930443">Tiago: 691 930 443</a>
-    <a href="tel:+352621573750">Luis: 621 573 750</a>
-    <a href="mailto:multijobs@sapo.pt">multijobs@sapo.pt</a>
-    <a href="https://www.google.com/maps/search/?api=1&query=1A%20Route%20de%20Luxembourg%2C%205551%20Remich" target="_blank" rel="noopener">1A Route de Luxembourg, 5551 Remich</a>
-  </div>
-  <span class="copyright">© 2026 Multijobs</span>
-</footer>
-
-<script src="script.js"></script>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
 </body>
 </html>

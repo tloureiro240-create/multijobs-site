@@ -1,0 +1,10 @@
+{
+  "name": "Receitas da Casa",
+  "short_name": "Receitas",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f5ef",
+  "theme_color": "#6f8f72",
+  "description": "Pesquisa, guarda e organiza receitas da casa.",
+  "icons": [{"src":"assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
