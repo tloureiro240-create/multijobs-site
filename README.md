@@ -1,11 +1,9 @@
-# Multijobs Site
+# Multijobs Site - versão simples
 
-Site institucional simples e responsivo da Multijobs.
+- Início
+- Serviços
+- Projetos/Galeria
+- Sobre nós
+- Contactos
 
-## Ficheiros
-- `index.html` — página principal
-- `style.css` — estilos
-- `script.js` — menu mobile
-
-## Publicação
-Carrega estes ficheiros no repositório GitHub `multijobs-site` e liga o repositório ao Netlify.
+Sem seletor PT/FR, sem secção 'Como trabalhamos' e sem formulário de orçamento.

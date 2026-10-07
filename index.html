@@ -1,106 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111418">
+  <meta name="description" content="Multijobs — eletricidade, iluminação LED, renovação, instalações técnicas, manutenção e trabalhos diversos.">
   <title>Multijobs | Vários serviços. Uma única equipa.</title>
-  <meta name="description" content="Multijobs - eletricidade, iluminação LED, renovação, instalações técnicas e pequenos trabalhos.">
+  <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Multijobs",
+    "email":"multijobs@sapo.pt",
+    "telephone":["+352691930443","+352621573750"]
+  }
+  </script>
 </head>
 <body>
-  <header class="header">
-    <div class="container nav">
-      <a class="logo" href="#inicio">MULTIJOBS</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
-      <nav id="navMenu">
-        <a href="#inicio">Início</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#sobre">Sobre nós</a>
-        <a href="#contactos">Contactos</a>
-      </nav>
+<header class="topbar">
+  <a href="#inicio" class="brand"><img src="assets/logo-multijobs.jpg" alt="Multijobs"></a>
+<nav id="nav">
+    <a href="#inicio">Início</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contactos">Contactos</a>
+  </nav>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <span class="kicker">MULTIJOBS</span>
+    <h1>Vários serviços.<br>Uma única equipa.</h1>
+    <p>Eletricidade, iluminação LED, renovação, instalações e manutenção para a sua casa ou projeto.</p>
+    <div class="actions">
+      <a class="btn red" href="#contactos">Pedir orçamento</a>
+      <a class="btn outline" href="#projetos">Ver trabalhos</a>
     </div>
-  </header>
-
-  <main>
-    <section class="hero" id="inicio">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <span class="eyebrow">MULTIJOBS</span>
-        <h1>Vários serviços.<br>Uma única equipa.</h1>
-        <p>Trabalhos de eletricidade, iluminação, renovação e instalações técnicas com atenção ao detalhe.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#contactos">Pedir orçamento</a>
-          <a class="btn secondary" href="#projetos">Ver trabalhos</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="servicos">
-      <div class="container">
-        <span class="section-tag">O que fazemos</span>
-        <h2>Os nossos serviços</h2>
-        <div class="cards">
-          <article class="card"><div class="icon">⚡</div><h3>Eletricidade</h3><p>Instalações, reparações e melhorias elétricas.</p></article>
-          <article class="card"><div class="icon">💡</div><h3>Iluminação LED</h3><p>Soluções modernas para interiores e ambientes personalizados.</p></article>
-          <article class="card"><div class="icon">🏡</div><h3>Iluminação exterior</h3><p>Iluminação funcional e decorativa para exteriores.</p></article>
-          <article class="card"><div class="icon">🛠️</div><h3>Renovação e acabamentos</h3><p>Melhorias e acabamentos para diferentes espaços.</p></article>
-          <article class="card"><div class="icon">🔧</div><h3>Instalações técnicas</h3><p>Montagens e soluções adaptadas a cada projeto.</p></article>
-          <article class="card"><div class="icon">✅</div><h3>Pequenos trabalhos</h3><p>Intervenções práticas para necessidades do dia a dia.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark" id="projetos">
-      <div class="container">
-        <span class="section-tag">Trabalhos realizados</span>
-        <h2>Projetos</h2>
-        <p class="section-intro">Aqui podemos adicionar as melhores fotografias dos trabalhos da Multijobs.</p>
-        <div class="gallery">
-          <div class="gallery-item"><span>Iluminação LED</span></div>
-          <div class="gallery-item"><span>Eletricidade</span></div>
-          <div class="gallery-item"><span>Exterior</span></div>
-          <div class="gallery-item"><span>Renovação</span></div>
-          <div class="gallery-item"><span>Instalações</span></div>
-          <div class="gallery-item"><span>Acabamentos</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="sobre">
-      <div class="container about">
-        <div>
-          <span class="section-tag">Quem somos</span>
-          <h2>Sobre a Multijobs</h2>
-        </div>
-        <div>
-          <p>A Multijobs reúne vários serviços numa só equipa, procurando oferecer soluções práticas, cuidadas e adaptadas a cada cliente.</p>
-          <p>Trabalhamos com foco na qualidade, organização e bom acompanhamento em cada projeto.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact-section" id="contactos">
-      <div class="container">
-        <span class="section-tag">Fale connosco</span>
-        <h2>Contactos</h2>
-        <p class="section-intro">Os números e o e-mail podem ser colocados aqui assim que quiseres inserir os contactos definitivos.</p>
-        <div class="contact-grid">
-          <div class="contact-card"><h3>Tiago</h3><p>Contacto da equipa</p><a class="btn primary disabled" href="#" onclick="return false;">Ligar / WhatsApp</a></div>
-          <div class="contact-card"><h3>Luis</h3><p>Contacto da equipa</p><a class="btn primary disabled" href="#" onclick="return false;">Ligar / WhatsApp</a></div>
-          <div class="contact-card"><h3>E-mail</h3><p>Contacto geral</p><a class="btn primary disabled" href="#" onclick="return false;">Enviar e-mail</a></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-content">
-      <strong>MULTIJOBS</strong>
-      <span>© 2026 Multijobs. Todos os direitos reservados.</span>
+    <div class="hero-pills">
+      <span>Eletricidade</span>
+      <span>LED</span>
+      <span>Renovação</span>
+      <span>Manutenção</span>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<section class="section intro">
+  <div>
+    <span class="kicker blue">UMA EQUIPA, VÁRIAS SOLUÇÕES</span>
+    <h2>Do trabalho técnico ao acabamento final</h2>
+  </div>
+  <p>A Multijobs junta diferentes competências para tornar cada intervenção mais simples, organizada e bem acabada.</p>
+</section>
+
+<section class="section" id="servicos">
+  <div class="heading">
+    <span class="kicker blue">SERVIÇOS</span>
+    <h2>O que fazemos</h2>
+  </div>
+  <div class="services">
+    <article><b>01</b><h3>Eletricidade</h3><p>Instalações, alterações, reparações e manutenção elétrica.</p></article>
+    <article><b>02</b><h3>Iluminação LED</h3><p>Linhas LED, iluminação indireta, paredes, tetos e escadas.</p></article>
+    <article><b>03</b><h3>Iluminação exterior</h3><p>Soluções para fachadas, acessos, jardins e zonas exteriores.</p></article>
+    <article><b>04</b><h3>Renovação e acabamentos</h3><p>Melhorias interiores e trabalhos de acabamento.</p></article>
+    <article><b>05</b><h3>Instalações técnicas</h3><p>Montagens e integração de soluções técnicas.</p></article>
+    <article><b>06</b><h3>Manutenção</h3><p>Pequenas intervenções, reparações e trabalhos diversos.</p></article>
+  </div>
+</section>
+
+<section class="projects section" id="projetos">
+  <div class="heading split">
+    <div>
+      <span class="kicker blue">PROJETOS</span>
+      <h2>Alguns dos nossos trabalhos</h2>
+    </div>
+    <div class="filters">
+      <button class="filter active" data-filter="all">Todos</button>
+      <button class="filter" data-filter="interior">Interior</button>
+      <button class="filter" data-filter="stairs">Escadas</button>
+      <button class="filter" data-filter="exterior">Exterior</button>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <figure data-cat="interior"><img loading="lazy" src="assets/corredor-led.jpg" alt="Corredor com iluminação LED"><figcaption>Linhas LED integradas</figcaption></figure>
+    <figure data-cat="interior"><img loading="lazy" src="assets/linhas-led.jpg" alt="Parede com linhas LED"><figcaption>Iluminação decorativa</figcaption></figure>
+    <figure data-cat="stairs"><img loading="lazy" src="assets/escada-led.jpg" alt="Escada com LED"><figcaption>Escada com LED contínuo</figcaption></figure>
+    <figure data-cat="stairs"><img loading="lazy" src="assets/escada-focos.jpg" alt="Escada com focos"><figcaption>Focos embutidos</figcaption></figure>
+    <figure data-cat="interior"><img loading="lazy" src="assets/teto-led.jpg" alt="Teto falso com LED"><figcaption>Teto com iluminação indireta</figcaption></figure>
+    <figure data-cat="exterior"><img loading="lazy" src="assets/exterior-noite.jpg" alt="Iluminação exterior"><figcaption>Iluminação exterior</figcaption></figure>
+    <figure data-cat="exterior"><img loading="lazy" src="assets/fachada.jpg" alt="Trabalho técnico em fachada"><figcaption>Trabalho técnico</figcaption></figure>
+    <figure data-cat="interior"><img loading="lazy" src="assets/coluna-led.jpg" alt="Coluna com LED"><figcaption>Detalhe LED</figcaption></figure>
+    <figure data-cat="stairs"><img loading="lazy" src="assets/escada-topo.jpg" alt="Escada iluminada"><figcaption>Iluminação de escada</figcaption></figure>
+  </div>
+</section>
+
+<section class="section faq">
+  <div class="heading">
+    <span class="kicker blue">FAQ</span>
+    <h2>Perguntas frequentes</h2>
+  </div>
+  <div class="faq-list">
+    <details><summary>Posso enviar fotografias do trabalho?</summary><p>Sim. As fotografias ajudam a perceber melhor o tipo de intervenção necessária.</p></details>
+    <details><summary>Fazem trabalhos pequenos?</summary><p>Sim. Podes contactar a Multijobs para explicar o trabalho e confirmar a disponibilidade.</p></details>
+    <details><summary>Como peço um orçamento?</summary><p>Podes usar o formulário acima, ligar ou enviar uma mensagem por WhatsApp.</p></details>
+  </div>
+</section>
+
+<section class="contact" id="contactos">
+  <div class="contact-inner">
+    <span class="kicker">CONTACTOS</span>
+    <h2>Fala diretamente connosco</h2>
+    <div class="contact-grid">
+      <a href="tel:+352691930443"><small>Tiago</small><strong>691 930 443</strong><span>Ligar →</span></a>
+      <a href="tel:+352621573750"><small>Luis</small><strong>621 573 750</strong><span>Ligar →</span></a>
+      <a href="mailto:multijobs@sapo.pt"><small>E-mail</small><strong>multijobs@sapo.pt</strong><span>Enviar e-mail →</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<a class="floating-wa" target="_blank" rel="noopener" href="https://wa.me/352691930443" aria-label="WhatsApp">WA</a>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button id="lightboxClose" aria-label="Fechar">×</button>
+  <img id="lightboxImg" alt="">
+</div>
+
+<footer>
+  <img src="assets/logo-multijobs.jpg" alt="Multijobs">
+  <span>© 2026 Multijobs</span>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
