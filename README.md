@@ -1,9 +1,6 @@
-# Multijobs Site - versão simples
+# Multijobs Site v6
 
-- Início
-- Serviços
-- Projetos/Galeria
-- Sobre nós
-- Contactos
+Inclui agora a morada:
+1A Route de Luxembourg, 5551 Remich
 
-Sem seletor PT/FR, sem secção 'Como trabalhamos' e sem formulário de orçamento.
+A morada aparece na secção Contactos e no rodapé, com link para abrir no mapa.
