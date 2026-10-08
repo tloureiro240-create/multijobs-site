@@ -1,0 +1,199 @@
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;max-width:100%;overflow-x:hidden}
+body{margin:0;max-width:100%;overflow-x:hidden;font-family:Arial,Helvetica,sans-serif;background:#f5f6f7;color:#121417}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+:root{--red:#e52c31;--blue:#2598cf;--black:#11151a;--muted:#69727c;--border:#e5e8eb;--white:#fff}
+
+.topbar{position:sticky;top:0;z-index:50;height:86px;background:#fff;display:flex;align-items:center;gap:14px;padding:8px clamp(18px,5vw,70px);box-shadow:0 2px 18px #00000010;border-bottom:4px solid transparent;border-image:linear-gradient(90deg,var(--red) 0 50%,var(--blue) 50% 100%) 1}
+.brand{margin-right:auto;min-width:0}
+.brand img{height:58px;width:auto;max-width:260px;object-fit:contain}
+.nav{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:700}
+.nav a:hover{color:var(--red)}
+.menu-btn{display:none;border:0;background:transparent;font-size:28px;line-height:1;cursor:pointer;padding:6px}
+.mobile-quote{display:none;background:var(--red);color:#fff;border-radius:8px;padding:10px 12px;font-size:12px;font-weight:800;white-space:nowrap}
+
+.hero{min-height:74vh;position:relative;display:flex;align-items:center;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,9,12,.90),rgba(7,9,12,.32)),url('assets/corredor-led.jpg') center/cover no-repeat}
+.hero-content{position:relative;z-index:2;width:min(860px,100%);padding:86px clamp(22px,8vw,120px)}
+.eyebrow{display:inline-block;margin-bottom:14px;font-size:12px;font-weight:900;letter-spacing:.20em;color:#fff}
+.eyebrow.blue{color:var(--blue)}
+h1{font-size:clamp(46px,7.5vw,92px);line-height:.96;letter-spacing:-.055em;margin:0 0 22px}
+.hero p{max-width:680px;font-size:clamp(17px,2vw,21px);line-height:1.6;color:#edf0f2;margin:0}
+.hero-actions,.contact-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:8px;font-weight:800}
+.btn-red{background:var(--red);color:#fff}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-outline{border:1px solid #ffffff88;background:#ffffff10;color:#fff}
+
+.section{width:min(1500px,100%);margin:0 auto;padding:88px clamp(22px,7vw,100px)}
+.intro{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:end}
+.intro h2,.section-head h2,.projects-head h2,.about h2,.contact h2{font-size:clamp(35px,5vw,60px);line-height:1.04;letter-spacing:-.04em;margin:0}
+.intro>p,.about-text p{font-size:17px;line-height:1.8;color:var(--muted);margin:0}
+.section-head{max-width:820px;margin-bottom:40px}
+
+.services-grid,.why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.services-grid article,.why-grid article{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px;min-width:0}
+.services-grid article>span,.why-grid article>span{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:900}
+.services-grid h3,.why-grid h3{font-size:22px;margin:22px 0 10px}
+.services-grid p,.why-grid p{color:var(--muted);line-height:1.65;margin:0}
+
+.projects{max-width:none;background:#fff}
+.projects-head,.gallery{width:min(1360px,100%);margin-left:auto;margin-right:auto}
+.projects-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:38px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{border:1px solid #dfe3e7;background:#fff;padding:9px 12px;border-radius:999px;font-weight:700;cursor:pointer}
+.filter.active{background:var(--black);color:#fff}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.gallery figure{position:relative;margin:0;height:320px;overflow:hidden;border-radius:12px;background:#ddd;cursor:zoom-in;min-width:0}
+.gallery figure.hidden{display:none}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery figcaption{position:absolute;left:12px;bottom:12px;max-width:calc(100% - 24px);background:#111d;color:#fff;padding:8px 10px;border-radius:7px;font-size:12px}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.about-text p+p{margin-top:14px}
+
+.faq-list{display:grid;gap:10px}
+.faq-list details{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 20px}
+.faq-list summary{font-weight:800;cursor:pointer}
+.faq-list p{color:var(--muted);line-height:1.7}
+
+.contact{background:var(--black);color:#fff;padding:88px clamp(22px,7vw,100px)}
+.contact-inner{width:min(1360px,100%);margin:auto}
+.contact-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:36px}
+.contact-grid a{min-width:0;border:1px solid #ffffff1e;background:#ffffff08;border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.contact-grid small{color:#9099a4}
+.contact-grid strong{font-size:clamp(18px,2vw,28px);overflow-wrap:anywhere}
+.contact-grid span{color:#66b9e5;font-size:13px;font-weight:800;margin-top:8px}
+
+.floating-wa{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:45;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#1f9d55;color:#fff;font-weight:900;box-shadow:0 10px 28px #0003}
+
+.lightbox{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;z-index:100;padding:28px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:95vw;max-height:88vh;border-radius:10px}
+.lightbox button{position:absolute;right:18px;top:12px;border:0;background:transparent;color:#fff;font-size:42px;cursor:pointer}
+
+footer{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:24px;align-items:center;background:#fff;padding:28px clamp(22px,7vw,100px);color:#6f777f;font-size:13px}
+.footer-brand{display:flex;align-items:center;gap:14px;min-width:0}
+.footer-brand img{height:54px;width:auto}
+.footer-links{display:flex;flex-direction:column;gap:4px}
+.copyright{white-space:nowrap}
+
+@media(max-width:1050px){
+  .contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(max-width:900px){
+  .topbar{height:76px;padding:7px 14px}
+  .brand img{height:48px;max-width:210px}
+  .mobile-quote{display:inline-flex}
+  .menu-btn{display:block}
+  .nav{display:none;position:absolute;top:76px;left:0;right:0;z-index:60;background:#fff;flex-direction:column;align-items:flex-start;padding:18px 20px;border-bottom:1px solid var(--border);box-shadow:0 12px 25px #00000012}
+  .nav.open{display:flex}
+  .intro,.about{grid-template-columns:1fr;gap:28px}
+  .services-grid,.why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .projects-head{align-items:flex-start;flex-direction:column}
+  footer{grid-template-columns:1fr}
+}
+
+@media(max-width:640px){
+  .topbar{gap:8px}
+  .brand img{height:42px;max-width:160px}
+  .mobile-quote{font-size:10.5px;padding:9px 9px}
+  .menu-btn{font-size:25px;padding:4px}
+  .hero{min-height:68vh}
+  .hero-content{padding:60px 20px}
+  h1{font-size:42px}
+  .hero p{font-size:16px}
+  .hero-actions .btn{width:100%}
+  .section,.contact{padding:62px 18px}
+  .services-grid,.why-grid,.gallery,.contact-grid{grid-template-columns:1fr}
+  .gallery figure{height:300px;width:100%}
+  .filters{width:100%;overflow-x:auto;padding-bottom:4px;flex-wrap:nowrap}
+  .filter{flex:0 0 auto}
+  .contact-grid a{width:100%;padding:20px}
+  .contact-actions{display:grid;grid-template-columns:1fr;gap:10px}
+  .contact-actions .btn{width:100%}
+  .footer-brand{align-items:flex-start;flex-direction:column}
+  .footer-brand img{height:48px}
+  .footer-links a{overflow-wrap:anywhere}
+}
+
+@media(max-width:390px){
+  .brand img{height:38px;max-width:135px}
+  .mobile-quote{font-size:9.5px;padding:8px 7px}
+  .menu-btn{font-size:23px}
+  h1{font-size:38px}
+}
+
+section[id]{scroll-margin-top:100px}
+@media(max-width:900px){section[id]{scroll-margin-top:88px}}
+
+
+/* Mobile hard-fix v2 — prevents gallery overflow/overlap on phones */
+@media (max-width:700px){
+  html,body{width:100%!important;max-width:100%!important;overflow-x:hidden!important}
+  main,.section,.projects,.gallery,.contact,.contact-inner{max-width:100%!important}
+  .projects{overflow:visible!important}
+  .projects-head{display:flex!important;flex-direction:column!important;align-items:flex-start!important;height:auto!important}
+  .gallery{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-auto-rows:auto!important;
+    gap:16px!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow:visible!important;
+    position:relative!important;
+  }
+  .gallery figure,
+  .gallery figure:not(.hidden){
+    display:block!important;
+    position:relative!important;
+    float:none!important;
+    clear:both!important;
+    width:100%!important;
+    max-width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    aspect-ratio:4/3!important;
+    margin:0!important;
+    inset:auto!important;
+    transform:none!important;
+    overflow:hidden!important;
+  }
+  .gallery figure.hidden{display:none!important}
+  .gallery figure img{
+    display:block!important;
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:100%!important;
+    object-fit:cover!important;
+    transform:none!important;
+  }
+  .gallery figcaption{z-index:2!important}
+  .contact{
+    position:relative!important;
+    z-index:1!important;
+    clear:both!important;
+    height:auto!important;
+    min-height:0!important;
+    overflow:visible!important;
+  }
+  .contact-grid{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    width:100%!important;
+    height:auto!important;
+    gap:12px!important;
+  }
+  .contact-grid a{width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important}
+  .services-grid,.why-grid{grid-template-columns:minmax(0,1fr)!important;height:auto!important}
+}
